@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>问卷统计</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/common.js" defer></script>
+  <script src="/js/statistics.js" defer></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main>
+    <div class="section-heading">
+      <h1 id="statistics-title">问卷统计</h1>
+      <div class="actions">
+        <a id="edit-survey" class="button secondary" hidden>返回编辑</a>
+        <button id="refresh-statistics" type="button" class="secondary" disabled>刷新统计</button>
+      </div>
+    </div>
+    <div id="page-message" class="message" role="status" tabindex="-1">正在加载统计……</div>
+    <section id="statistics-summary" class="panel" hidden></section>
+    <div id="question-statistics"></div>
+    <noscript><p class="notice">请启用 JavaScript 后查看统计。</p></noscript>
+  </main>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>登录 - 问卷系统</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/common.js" defer></script>
+  <script src="/js/auth.js" defer></script>
+</head>
+<body data-auth-mode="login">
+  <header id="site-header"></header>
+  <main class="narrow">
+    <h1>登录</h1>
+    <div id="page-message" class="message" role="alert" tabindex="-1" hidden></div>
+    <form id="auth-form" class="panel">
+      <label class="field">用户名
+        <input name="username" required minlength="3" maxlength="32" pattern="[A-Za-z0-9_-]{3,32}" autocomplete="username">
+      </label>
+      <label class="field">密码
+        <input name="password" type="password" required minlength="8" autocomplete="current-password">
+      </label>
+      <p class="hint">用户名为 3～32 个英文字母、数字、下划线或连字符。密码至少 8 个字符，不超过 72 个字符。</p>
+      <div class="actions">
+        <button type="submit">登录</button>
+        <a href="/register">没有账号？注册</a>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

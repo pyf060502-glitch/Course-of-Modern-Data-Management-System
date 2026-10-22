@@ -1,0 +1,65 @@
+:root { color-scheme: light; font-family: system-ui, "Microsoft YaHei", sans-serif; color: #1f2937; background: #f4f6f8; line-height: 1.6; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+[hidden] { display: none !important; }
+a { color: #125bb5; overflow-wrap: anywhere; }
+a:hover { color: #083d80; }
+header { background: #fff; border-bottom: 1px solid #d8dee7; }
+.header-inner { max-width: 1100px; margin: auto; padding: 14px 20px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.brand { font-size: 1.2rem; font-weight: 700; text-decoration: none; color: #1f2937; }
+.account { margin-left: auto; }
+main { max-width: 1100px; margin: 24px auto 60px; padding: 0 20px; }
+main.narrow { max-width: 520px; }
+h1 { font-size: 1.65rem; margin: 0 0 16px; }
+h2 { font-size: 1.25rem; margin: 0 0 14px; }
+h3 { font-size: 1.05rem; margin: 0 0 10px; }
+p { margin: 10px 0; }
+.panel, .question-card, .rule-card { padding: 20px; margin-bottom: 20px; background: #fff; border: 1px solid #d8dee7; border-radius: 6px; }
+.question-card, .rule-card { padding: 16px; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+label.field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+input, select, textarea, button { font: inherit; }
+input:not([type="checkbox"]), select, textarea { width: 100%; border: 1px solid #8c99a9; border-radius: 4px; padding: 8px 10px; color: #1f2937; background: #fff; }
+textarea { resize: vertical; min-height: 100px; }
+input[type="checkbox"] { width: 18px; height: 18px; vertical-align: middle; accent-color: #125bb5; }
+.check { display: flex; gap: 8px; align-items: center; margin: 8px 0 14px; }
+button, .button { display: inline-block; background: #125bb5; color: #fff; padding: 8px 14px; border: 1px solid #125bb5; border-radius: 4px; cursor: pointer; text-decoration: none; }
+button.secondary, .button.secondary { color: #1f2937; border-color: #8c99a9; background: #fff; }
+button.danger { background: #b42318; border-color: #b42318; color: #fff; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+button:hover:not(:disabled), .button:hover { filter: brightness(.93); color: #fff; }
+button.secondary:hover:not(:disabled), .button.secondary:hover { color: #1f2937; }
+:focus-visible { outline: 3px solid #db930c; outline-offset: 3px; }
+fieldset { min-width: 0; padding: 0; margin: 0; border: 0; }
+fieldset:disabled input, fieldset:disabled textarea, fieldset:disabled select { background: #f0f2f5; color: #465264; opacity: 1; }
+.message { border-radius: 4px; padding: 12px; margin: 12px 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.error { color: #8f1710; background: #fff0ef; border: 2px solid #b42318; }
+.success { color: #145a32; background: #ecf8f0; border: 1px solid #78aa89; }
+.hint, .muted { color: #4d5a6c; font-size: .93rem; }
+.notice { padding: 12px; background: #fff7dd; border: 1px solid #c7a64b; border-radius: 4px; }
+.badge { display: inline-block; padding: 2px 9px; background: #e8eef8; border-radius: 4px; font-size: .9rem; }
+.option-row { display: flex; gap: 8px; align-items: center; margin-bottom: 9px; }
+.option-row input { flex: 1; min-width: 0; }
+.option-row button { flex-shrink: 0; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px 8px; border-bottom: 1px solid #d8dee7; text-align: left; vertical-align: top; }
+th { white-space: nowrap; background: #f4f6f8; }
+td.title { min-width: 170px; overflow-wrap: anywhere; white-space: pre-wrap; }
+.preserve-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.section-heading h2 { margin: 0; }
+.choice-values { border: 1px solid #d8dee7; padding: 10px; margin-bottom: 14px; }
+.choice-values legend { padding: 0 5px; }
+.delete-confirmation { width: min(520px, calc(100% - 32px)); padding: 24px; border: 1px solid #d8dee7; border-radius: 6px; color: #1f2937; background: #fff; }
+.delete-confirmation::backdrop { background: rgb(0 0 0 / 45%); }
+.delete-confirmation .actions { justify-content: flex-end; margin-top: 20px; }
+@media (max-width: 600px) {
+  main { padding: 0 12px; margin-top: 16px; }
+  .header-inner { padding: 12px; gap: 12px; }
+  .account { margin-left: 0; width: 100%; }
+  .panel { padding: 14px; }
+  .option-row { flex-wrap: wrap; }
+  .grid { grid-template-columns: 1fr; }
+}
