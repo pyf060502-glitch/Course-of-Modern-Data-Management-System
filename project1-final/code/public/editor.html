@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>编辑问卷 - 问卷系统</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/common.js" defer></script>
+  <script src="/js/question-fields.js" defer></script>
+  <script src="/js/editor.js" defer></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main>
+    <div class="section-heading"><h1>编辑 / 查看问卷</h1><a href="/surveys">返回我的问卷</a></div>
+    <div id="page-message" class="message" role="alert" tabindex="-1" hidden></div>
+    <div id="editor-content" hidden>
+      <section class="panel">
+        <div class="section-heading"><h2 id="survey-heading"></h2><span id="survey-status" class="badge"></span></div>
+        <p id="status-notice" class="notice"></p>
+        <div class="actions">
+          <a id="public-link" hidden>填写链接</a>
+          <a id="statistics-link">查看统计</a>
+          <button id="reload" type="button" class="secondary">重新读取</button>
+          <button id="publish" type="button" hidden>发布问卷</button>
+          <button id="close" type="button" class="danger" hidden>关闭问卷</button>
+          <button id="delete-survey" type="button" class="danger">删除问卷</button>
+        </div>
+      </section>
+      <section class="panel">
+        <h2>基础设置</h2>
+        <form id="settings-form">
+          <fieldset id="settings-fields">
+            <label class="field">标题（最多 200 字符）<input name="title" required maxlength="200"></label>
+            <label class="field">说明（最多 5000 字符）<textarea name="description" maxlength="5000"></textarea></label>
+            <label class="field">截止时间（可留空，使用本地时间）<input name="deadline" type="datetime-local"></label>
+            <fieldset id="participation-fields">
+              <label class="check"><input name="allowAnonymous" type="checkbox">允许匿名填写</label>
+              <label class="check"><input name="allowMultipleResponses" type="checkbox">允许重复填写</label>
+            </fieldset>
+            <p id="participation-hint" class="notice"></p>
+            <button id="save-settings" type="submit">保存基础设置</button>
+          </fieldset>
+        </form>
+      </section>
+      <section class="panel">
+        <div class="section-heading"><h2>题目配置</h2><button id="add-question" type="button">添加题目</button></div>
+        <p class="hint">最多 100 题，每题最多 50 个选项。标题和选项标签最多 200 字符。文本长度上限为10000。配置留空表示使用默认值。</p>
+        <p class="hint">请逐题保存后再排序或配置规则。删除题目会移除关联规则；排序不能让已有规则向前跳转。</p>
+        <div id="question-list"></div>
+        <fieldset id="library-picker">
+          <legend>从常用题库选用</legend>
+          <p class="hint">选用后题目内容独立，关联题目的版本历史共享。可选择历史版本用于当前问卷；仅导入题目及校验配置，不导入跳转规则。</p>
+          <div class="actions"><a href="/question-library" target="_blank" rel="noopener">管理常用题库</a><button id="load-library" type="button" class="secondary">刷新题目</button></div>
+          <div class="library-field">
+            <span id="library-selection-label">选择常用题目</span>
+            <div id="library-dropdown" class="library-dropdown">
+              <button id="library-selection" type="button" class="secondary library-select" aria-labelledby="library-selection-label library-selection" aria-haspopup="listbox" aria-expanded="false" aria-controls="library-options" aria-describedby="library-preview" disabled>正在加载题目…</button>
+              <div id="library-options" class="library-options" role="listbox" aria-labelledby="library-selection-label" hidden></div>
+            </div>
+          </div>
+          <p id="library-preview" class="preserve-text"></p>
+          <div class="actions">
+            <span id="library-page">正在加载题目…</span>
+            <button id="import-library-question" type="button" disabled>选用到当前问卷</button>
+            <button id="select-library-version" type="button" class="secondary">选择历史版本</button>
+          </div>
+        </fieldset>
+      </section>
+      <section class="panel">
+        <div class="section-heading"><h2>跳转规则</h2><button id="add-rule" type="button">添加规则</button></div>
+        <p class="hint">文本题不配置跳转；目标只能为后续题目或结束。优先级为非负整数，同一来源不能重复，数值越小越优先。可选空答案不匹配规则，无匹配按顺序继续。</p>
+        <div id="rule-list"></div>
+        <button id="save-rules" type="button">保存全部规则</button>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

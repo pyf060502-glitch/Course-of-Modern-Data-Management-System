@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>常用题库 - 问卷系统</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/common.js" defer></script>
+  <script src="/js/question-fields.js" defer></script>
+  <script src="/js/library-statistics.js" defer></script>
+  <script src="/js/question-library.js" defer></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main>
+    <div class="section-heading"><h1>我的常用题库</h1><a href="/surveys">返回我的问卷</a></div>
+    <div id="page-message" class="message" role="alert" tabindex="-1" hidden></div>
+    <div id="library-content" hidden>
+      <p class="notice">这里的题目仅自己可见。可基于现有题目或历史版本创建新版本，再选入不同问卷。关联题目共享版本历史，各问卷当前使用的内容保持独立，已发布问卷不受影响。</p>
+      <section class="panel">
+        <h2 id="form-heading">创建常用题目</h2>
+        <form id="library-form">
+          <fieldset id="library-fields"></fieldset>
+          <div class="actions"><button type="submit" id="save-library-question">保存常用题目</button><button type="button" id="cancel-library-edit" class="secondary">清空 / 取消编辑</button></div>
+        </form>
+      </section>
+      <section class="panel">
+        <div class="section-heading"><h2>已保存题目</h2><button type="button" id="refresh-library" class="secondary">刷新列表</button></div>
+        <div id="library-list"></div>
+        <div class="actions"><button id="previous-library-page" type="button" class="secondary">上一页</button><span id="library-summary"></span><button id="next-library-page" type="button" class="secondary">下一页</button></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
